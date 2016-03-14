@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="index.html" class="navbar-brand">A deux mains</a>
+                <a href="{{ path('core_homepage')}}" class="navbar-brand">A deux mains</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -38,12 +38,14 @@
                 <div class="navbar-right">
                     
                     <ul class="nav navbar-nav">
+                        <li><a href="{{ path('core_add')}}">Ajouter un article</a></li>
                     <li class="dropdown clic">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Connexion<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">se Connecter</a></li>
                         </ul>
                         </li>
+
                     </ul>
                 </div>
         </div>

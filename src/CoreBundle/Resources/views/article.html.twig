@@ -1,1 +1,38 @@
-article
+
+{# src/OC/PlatformBundle/Resources/views/Advert/index.html.twig #}
+
+{% extends "CoreBundle::layout.html.twig" %}
+
+{% block title %}
+ {{ article.name }} - Article - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 pub pub-bandeau">
+                <a href="#"><h1>pubs</h1></a>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8 content article">
+                <img url="{{ article.image.url }}" alt="{{ article.image.url }}"/>
+                <h2>{{ article.name }}</h2>
+                
+                <i>Par {{ article.author }}, le {{ article.date|date('d/m/Y') }}</i>
+
+  <div class="well">
+    <p>{{ article.content }}</p>
+  </div>
+
+  {% if not article.categories.empty %}
+      <p>
+        Cette article est parue dans les catégories suivantes :
+        {% for category in article.categories %}
+          {{ category.name }}{% if not loop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+    {% endif %}
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3 pull-right pub article">
+                <a href="#"><h1>pubs</h1></a>
+            </div>
+        </div>
+{% endblock %}

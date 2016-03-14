@@ -14,6 +14,8 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $article = $em->getRepository('CoreBundle:Article') ->getLastArticle();
+        
+
         return $this->render('CoreBundle:Default:index.html.twig', ['article' => $article]);
     }
 
@@ -34,7 +36,12 @@ class DefaultController extends Controller
 
     public function articleAction($id)
     {
-        return $this->render('CoreBundle:article.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('CoreBundle:Article')->find($id);
+        if ($article == null) {
+          throw $this->createNotFoundException("L'article d'id ".$id." n'existe pas.");
+        }
+        return $this->render('CoreBundle:article.html.twig', ['article' => $article]);
     }
 
     public function addAction(Request $request)

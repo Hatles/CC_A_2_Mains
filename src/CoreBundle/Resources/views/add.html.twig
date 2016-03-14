@@ -1,2 +1,16 @@
-add
-{{ include("CoreBundle:form.html.twig") }}
+
+{# src/OC/PlatformBundle/Resources/views/Advert/index.html.twig #}
+
+{% extends "CoreBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<div class="well">
+  <h2>Ajouter un article</h2>
+
+  {{ include("CoreBundle:form.html.twig") }}
+</div>
+{% endblock %}
