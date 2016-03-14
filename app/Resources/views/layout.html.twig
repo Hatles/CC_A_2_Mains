@@ -1,63 +1,55 @@
-{# app/Resources/views/layout.html.twig #}
+
 
 <!DOCTYPE html>
-<html>
+<html lang="">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>{% block title %}SM Plateforme{% endblock %}</title>
-
-  {% block stylesheets %}
-    {# On charge le CSS de bootstrap depuis le site directement #}
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  {% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}A2Mains{% endblock %}</title>
+    <link rel="shortcut icon" href="">
+    {% block stylesheets %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ app.request.basepath }}/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>body{padding-top:90px;}</style>
+    {% endblock %}
 </head>
 
 <body>
-  <div class="container">
-    <div id="header" class="jumbotron">
-      <h1>Ma plateforme d'annonces</h1>
-      <p>
-        Ce projet est propulsé par Symfony2,
-        et construit grâce au MOOC OpenClassrooms et SensioLabs.
-      </p>
-      <p>
-        <a class="btn btn-primary btn-lg" href="http://fr.openclassrooms.com/informatique/cours/developpez-votre-site-web-avec-le-framework-symfony2">
-          Participer au MOOC »
-        </a>
-      </p>
+  {{ render(controller("CoreBundle:Default:menu")) }}
+    
+    {% block bandeau %}
+    {% endblock %}
+
+    <div class="container">
+    {% block body %}
+    {% endblock %}
     </div>
 
-    <div class="row">
-      <div id="menu" class="col-md-3">
-        <h3>Les annonces</h3>
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="{{ path('core_homepage') }}">Accueil</a></li>
-          <li><a href="{{ path('core_add') }}">Ajouter une annonce</a></li>
-        </ul>
-
-        <h4>Categories</h4>
-        {{ render(controller("CoreBundle:Default:menu")) }}
-      </div>
-      <div id="content" class="col-md-9">
-        {% block body %}
-        {% endblock %}
-      </div>
+    <div class="footer">
+        <div class="row">
+        <a href="#"><i class="fa fa-facebook-square fa-3x"></i></a>
+        <a href="#"><i class="fa fa-twitter-square fa-3x"></i></a>
+        <a href="#"><i class="fa fa-linkedin-square fa-3x"></i></a>
+        <a href="#"><i class="fa fa-youtube-square fa-3x"></i></a>
+        <h2> Nos partenaires : </h2>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <a href="#"><img src="{{ app.request.basepath }}/img/castorama_logo.jpg" class="img img-thumbnail"></a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <a href="#"><img src="{{ app.request.basepath }}/img/cultura_logo2.png" class="img img-thumbnail"></a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <a href="#"><img src ="{{ app.request.basepath }}/img/logo_8598.jpg" class="img img-thumbnail"></a>
+            </div>
+        </div>
     </div>
 
-    <hr>
-
-    <footer>
-      <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
-    </footer>
-  </div>
-
-  {% block javascripts %}
-    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  {% endblock %}
-
-</body>
+    {% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    {% endblock %}
+        
+</body> 
 </html>

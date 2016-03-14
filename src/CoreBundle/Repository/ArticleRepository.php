@@ -51,4 +51,17 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
       ->getResult()
     ;
   }
+
+  public function getLastArticle()
+  {
+    $qb = $this->createQueryBuilder('a')
+    ->orderBy('a.date', 'DESC')
+    ->setMaxResults('1');
+
+    // Enfin, on retourne le résultat
+    return $qb
+      ->getQuery()
+      ->getResult()[0]
+    ;
+  }
 }

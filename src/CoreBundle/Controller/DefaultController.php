@@ -12,7 +12,9 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CoreBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('CoreBundle:Article') ->getLastArticle();
+        return $this->render('CoreBundle:Default:index.html.twig', ['article' => $article]);
     }
 
     public function categoryAction($id)
