@@ -54,4 +54,16 @@ class DefaultController extends Controller
           'form' => $form->createView(),
         ));
       }
+
+    public function menuAction()
+  {
+    $categories = $this->getDoctrine()
+      ->getManager()
+      ->getRepository('CoreBundle:Category')
+      ->findAll();
+
+    return $this->render('CoreBundle:menu.html.twig', array(
+      'categories' => $categories
+    ));
+  }
 }
