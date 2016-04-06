@@ -3,31 +3,7 @@
 <h3>Formulaire d'article</h3>
 
 <div class="well">
-  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-
-    {# Les erreurs générales du formulaire. #}
-    {{ form_errors(form) }}
-
-  {# Génération du label + error + widget pour un champ #}
-  {{ form_row(form.name) }}
-
-  {# Génération du label + error + widget pour un champ #}
-
-
-  {{ form_row(form.author) }}
-
-
-  {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-
-
-  {# Génération automatique des champs pas encore écrits.
-     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
-     et tous les champs cachés (type « hidden »). #}
-  {{ form_rest(form) }}
-  
-
-    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
-  {# Fermeture de la balise <form> du formulaire HTML #}
-  {{ form_end(form) }}
+  {% form_theme form 'bootstrap_3_layout.html.twig' %}
+  {{ form_widget(form) }}
 </div>
 
