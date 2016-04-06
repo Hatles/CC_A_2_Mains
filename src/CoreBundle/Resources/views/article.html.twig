@@ -13,12 +13,11 @@
                 <a href="#"><h1>pubs</h1></a>
             </div>
             <div class="col-md-8 col-sm-8 col-xs-8 content article">
-                <img src="{{ article.image.url }}" alt="{{ article.image.url }}"/>
-                <h2>{{ article.name }}</h2>
+                <h1>{{ article.name }}</h1>
                 
                 <i>Par {{ article.author }}, le {{ article.date|date('d/m/Y') }}</i>
 
-  <div class="well">
+  <div class="well article">
     <p>{{ article.content | raw }}</p>
   </div>
   <div class="rating">
@@ -38,7 +37,7 @@
       </p>
     {% endif %}
             </div>
-            <div class="col-md-3 col-sm-3 col-xs-3 pull-right pub article">
+            <div class="col-md-3 col-sm-3 col-xs-3 pull-right pub pub-lat">
                 <a href="#"><h1>pubs</h1></a>
             </div>
         </div>
