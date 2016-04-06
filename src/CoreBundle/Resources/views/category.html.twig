@@ -10,7 +10,7 @@
 
 {% block body %}
 <div class="well">
-  <h2>{{ category.name }}</h2>
+  <h1>{{ category.name }}</h1>
 
   <ul>
     {% for article in articles %}
@@ -22,7 +22,7 @@
         le {{ article.date|date('d/m/Y') }}
       </li>
     {% else %}
-      <li>Pas (encore !) d'articles</li>
+      <h2>Pas (encore !) d'articles dans cette catégorie</h2>
     {% endfor %}
   </ul>
 </div>
