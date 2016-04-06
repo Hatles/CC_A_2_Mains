@@ -122,6 +122,9 @@ h1{
     color: aliceblue;
     transition: all 0.5s ease 0s;
 }
+.bt-blue a{
+    font-family: 'Kaushan Script', cursive;
+}
 .bt-blue:hover i{
     transform: scale(1.2);
 }
