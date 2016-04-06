@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ArticleType extends AbstractType
 {
@@ -18,7 +19,7 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('content')
+            ->add('content', TextareaType::class, array('attr' => array('class' => 'ckeditor')))
             ->add('author')
             ->add('note')
             ->add('image', ImageType::class)

@@ -14,3 +14,8 @@
   {{ include("CoreBundle:form.html.twig") }}
 </div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ app.request.basepath }}/lib/ckeditor/ckeditor.js"></script>
+{% endblock %}
