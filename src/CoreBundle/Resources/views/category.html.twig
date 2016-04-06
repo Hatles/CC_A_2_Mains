@@ -12,14 +12,20 @@
 <div class="well">
   <h1>{{ category.name }}</h1>
 
-  <ul>
+  <ul class="list-group">
     {% for article in articles %}
-      <li>
-        <a href="{{ path('core_article', {'id': article.id}) }}">
-          {{ article.name }}
-        </a>
-        par {{ article.author }},
-        le {{ article.date|date('d/m/Y') }}
+      <li class="list-group-item">
+        <div class="row">
+                <a href="{{ path('core_article', {'id': article.id}) }}">
+                <div class="col-sm-5">
+                    <img src="{{ article.image.url }}" alt="{{ article.image.alt }}"  class="img-responsive"/>
+                </div>
+                <div class="col-sm-7">
+                    <h3>{{ article.name }}</h3>
+                    par {{ article.author }}, le {{ article.date|date('d/m/Y') }}
+                </div>
+                </a>
+              </div>
       </li>
     {% else %}
       <h2>Pas (encore !) d'articles dans cette catégorie</h2>

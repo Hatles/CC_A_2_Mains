@@ -50,13 +50,15 @@
             
             </div>
             <div class="col-md-8 col-sm-8 content">
-                <a href="article.html"><h1>Article de la semaine</h1></a>
+                <a href="{{ path('core_article', {'id': article.id}) }}"><h1>Article de la semaine</h1>
                 <div class="col-md-5">
-                    <a href="article.html">image</a>
+                    <img src="{{ article.image.url }}" alt="{{ article.image.alt }}" class="img-responsive"/>
                 </div>
                 <div class="col-md-7">
                     <h3>{{ article.name }}</h3>
+                    par {{ article.author }}, le {{ article.date|date('d/m/Y') }}
                 </div>
+                </a>
             </div>
             <div class="col-md-3 col-sm-3 col-xs-12 pull-right pub">
                 <a href="#"><h1>Pub</h1></a>
